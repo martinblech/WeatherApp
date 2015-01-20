@@ -7,7 +7,6 @@
 //
 
 #import "OpenWeatherMapClient.h"
-#import <NSString-UrlEncode/NSString+URLEncode.h>
 
 @implementation OpenWeatherMapClient
 
@@ -20,10 +19,10 @@
 
 - (NSURLSessionDataTask *)getWeatherWithCityName:(NSString *)cityName country:(NSString *)country completion:(OpenWeatherMapCompletionBlock)completion
 {
-    cityName = [cityName URLEncode];
-    country = [country URLEncode];
-    NSString *URLString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?q=%@,%@", cityName, country];
-    return [self GET:URLString parameters:nil completion:^(OVCResponse *response, NSError *error) {
+    NSString *URLString = @"http://api.openweathermap.org/data/2.5/weather";
+    NSString *query = [NSString stringWithFormat:@"%@,%@", cityName, country];
+    NSDictionary *parameters = @{ @"q": query };
+    return [self GET:URLString parameters:parameters completion:^(OVCResponse *response, NSError *error) {
         completion(response, response.result, error);
     }];
 }
@@ -35,8 +34,12 @@
 
 - (NSURLSessionDataTask *)getWeatherWithLatitude:(double)latitude longitude:(double)longitude completion:(OpenWeatherMapCompletionBlock)completion
 {
-    NSString *URLString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f", latitude, longitude];
-    return [self GET:URLString parameters:nil completion:^(OVCResponse *response, NSError *error) {
+    NSString *URLString = @"http://api.openweathermap.org/data/2.5/weather";
+    NSDictionary *parameters = @{
+        @"lat": @(latitude),
+        @"lon": @(longitude),
+    };
+    return [self GET:URLString parameters:parameters completion:^(OVCResponse *response, NSError *error) {
         completion(response, response.result, error);
     }];
 }
