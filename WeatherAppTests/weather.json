@@ -1,0 +1,15 @@
+{
+    "coord":{"lon":-68.84,"lat":-32.89},
+    "sys":{"message":0.0318,"country":"AR","sunrise":1421747259,"sunset":1421797520},
+    "weather":[
+               {"id":804,"main":"Clouds","description":"overcast clouds","icon":"04n"}
+               ],
+    "base":"cmc stations",
+    "main":{"temp":289.199,"temp_min":289.199,"temp_max":289.199,"pressure":861.96,"sea_level":1030.97,"grnd_level":861.96,"humidity":54},
+    "wind":{"speed":1.32,"deg":177.504},
+    "clouds":{"all":88},
+    "dt":1421717252,
+    "id":3844421,
+    "name":"Mendoza",
+    "cod":200
+}
