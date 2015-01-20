@@ -23,7 +23,7 @@
 {
     [super setUp];
     self.client = [[OpenWeatherMapClient alloc] init];
-    [Expecta setAsynchronousTestTimeout:30];
+    [Expecta setAsynchronousTestTimeout:60];
 }
 
 - (void)tearDown

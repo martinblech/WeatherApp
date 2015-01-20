@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *country;
 @property (nonatomic, copy) NSURL *imageURL;
+@property (nonatomic, readonly) NSString *fullName;
 
 + (NSArray *)allCities;
 

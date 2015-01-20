@@ -30,4 +30,16 @@
     return [MTLJSONAdapter modelsOfClass:[City class] fromJSONArray:citiesJSON[@"cities"] error:nil];
 }
 
+- (NSString *)fullName
+{
+    NSMutableArray *nameComponents = [[NSMutableArray alloc] init];
+    if (self.name.length) {
+        [nameComponents addObject:self.name];
+    }
+    if (self.country.length) {
+        [nameComponents addObject:self.country];
+    }
+    return [nameComponents componentsJoinedByString:@", "];
+}
+
 @end
