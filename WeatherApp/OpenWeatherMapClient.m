@@ -17,27 +17,41 @@
     };
 }
 
-- (NSURLSessionDataTask *)getWeatherWithCityName:(NSString *)cityName country:(NSString *)country completion:(OpenWeatherMapCompletionBlock)completion
+- (NSString *)parameterStringForUnitFormat:(OpenWeatherMapUnitFormat)unitFormat
+{
+    switch (unitFormat) {
+        case OpenWeatherMapUnitFormatImperial:
+            return @"imperial";
+        case OpenWeatherMapUnitFormatMetric:
+            return @"metric";
+    }
+}
+
+- (NSURLSessionDataTask *)getWeatherWithCityName:(NSString *)cityName country:(NSString *)country unitFormat:(OpenWeatherMapUnitFormat)unitFormat completion:(OpenWeatherMapCompletionBlock)completion
 {
     NSString *URLString = @"http://api.openweathermap.org/data/2.5/weather";
     NSString *query = [NSString stringWithFormat:@"%@,%@", cityName, country];
-    NSDictionary *parameters = @{ @"q": query };
+    NSDictionary *parameters = @{
+        @"q": query,
+        @"units": [self parameterStringForUnitFormat:unitFormat],
+    };
     return [self GET:URLString parameters:parameters completion:^(OVCResponse *response, NSError *error) {
         completion(response, response.result, error);
     }];
 }
 
-- (NSURLSessionDataTask *)getWeatherWithCity:(City *)city completion:(OpenWeatherMapCompletionBlock)completion
+- (NSURLSessionDataTask *)getWeatherWithCity:(City *)city unitFormat:(OpenWeatherMapUnitFormat)unitFormat completion:(OpenWeatherMapCompletionBlock)completion
 {
-    return [self getWeatherWithCityName:city.name country:city.country completion:completion];
+    return [self getWeatherWithCityName:city.name country:city.country unitFormat:unitFormat completion:completion];
 }
 
-- (NSURLSessionDataTask *)getWeatherWithLatitude:(double)latitude longitude:(double)longitude completion:(OpenWeatherMapCompletionBlock)completion
+- (NSURLSessionDataTask *)getWeatherWithLatitude:(double)latitude longitude:(double)longitude unitFormat:(OpenWeatherMapUnitFormat)unitFormat completion:(OpenWeatherMapCompletionBlock)completion
 {
     NSString *URLString = @"http://api.openweathermap.org/data/2.5/weather";
     NSDictionary *parameters = @{
         @"lat": @(latitude),
         @"lon": @(longitude),
+        @"units": [self parameterStringForUnitFormat:unitFormat],
     };
     return [self GET:URLString parameters:parameters completion:^(OVCResponse *response, NSError *error) {
         completion(response, response.result, error);

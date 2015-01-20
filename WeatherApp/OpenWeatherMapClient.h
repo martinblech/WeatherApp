@@ -11,10 +11,15 @@
 
 typedef void(^OpenWeatherMapCompletionBlock)(OVCResponse *response, Weather *weather, NSError *error);
 
+typedef NS_ENUM(NSInteger, OpenWeatherMapUnitFormat) {
+    OpenWeatherMapUnitFormatMetric = 0,
+    OpenWeatherMapUnitFormatImperial,
+};
+
 @interface OpenWeatherMapClient : OVCHTTPSessionManager
 
-- (NSURLSessionDataTask *)getWeatherWithCityName:(NSString *)cityName country:(NSString *)country completion:(OpenWeatherMapCompletionBlock)completion;
-- (NSURLSessionDataTask *)getWeatherWithCity:(City *)city completion:(OpenWeatherMapCompletionBlock)completion;
-- (NSURLSessionDataTask *)getWeatherWithLatitude:(double)latitude longitude:(double)longitude completion:(OpenWeatherMapCompletionBlock)completion;
+- (NSURLSessionDataTask *)getWeatherWithCityName:(NSString *)cityName country:(NSString *)country unitFormat:(OpenWeatherMapUnitFormat)unitFormat completion:(OpenWeatherMapCompletionBlock)completion;
+- (NSURLSessionDataTask *)getWeatherWithCity:(City *)city unitFormat:(OpenWeatherMapUnitFormat)unitFormat completion:(OpenWeatherMapCompletionBlock)completion;
+- (NSURLSessionDataTask *)getWeatherWithLatitude:(double)latitude longitude:(double)longitude unitFormat:(OpenWeatherMapUnitFormat)unitFormat completion:(OpenWeatherMapCompletionBlock)completion;
 
 @end

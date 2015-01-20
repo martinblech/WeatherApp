@@ -40,7 +40,7 @@
     city.country = @"AR";
     __block Weather *weather;
     __block NSError *error;
-    [self.client getWeatherWithCity:city completion:^(OVCResponse *response, Weather *_weather, NSError *_error) {
+    [self.client getWeatherWithCity:city unitFormat:OpenWeatherMapUnitFormatMetric completion:^(OVCResponse *response, Weather *_weather, NSError *_error) {
         weather = _weather;
         error = _error;
     }];
@@ -54,7 +54,7 @@
 {
     __block Weather *weather;
     __block NSError *error;
-    [self.client getWeatherWithCityName:@"New York" country:@"US" completion:^(OVCResponse *response, Weather *_weather, NSError *_error) {
+    [self.client getWeatherWithCityName:@"New York" country:@"US" unitFormat:OpenWeatherMapUnitFormatMetric completion:^(OVCResponse *response, Weather *_weather, NSError *_error) {
         weather = _weather;
         error = _error;
     }];
@@ -68,7 +68,7 @@
 {
     __block Weather *weather;
     __block NSError *error;
-    [self.client getWeatherWithLatitude:15.865 longitude:-97.068 completion:^(OVCResponse *response, Weather *_weather, NSError *_error) {
+    [self.client getWeatherWithLatitude:15.865 longitude:-97.068 unitFormat:OpenWeatherMapUnitFormatMetric completion:^(OVCResponse *response, Weather *_weather, NSError *_error) {
         weather = _weather;
         error = _error;
     }];
@@ -76,6 +76,22 @@
     expect(error).to.beNil();
     expect(weather.city.name).to.equal(@"Puerto Escondido");
     expect(weather.city.country).to.equal(@"MX");
+}
+
+- (void)testMetricVsImperial
+{
+    __block Weather *metric;
+    __block Weather *imperial;
+    [self.client getWeatherWithLatitude:15.865 longitude:-97.068 unitFormat:OpenWeatherMapUnitFormatMetric completion:^(OVCResponse *response, Weather *weather, NSError *error) {
+        metric = weather;
+    }];
+    [self.client getWeatherWithLatitude:15.865 longitude:-97.068 unitFormat:OpenWeatherMapUnitFormatImperial completion:^(OVCResponse *response, Weather *weather, NSError *error) {
+        imperial = weather;
+    }];
+    expect(metric).willNot.beNil();
+    expect(imperial).willNot.beNil();
+    double metricTemperatureInFahrenheit = ((metric.temperature * 9.0) / 5.0) + 32.0;
+    expect(imperial.temperature).to.beCloseToWithin(metricTemperatureInFahrenheit, 0.1);
 }
 
 @end
