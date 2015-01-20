@@ -14,6 +14,8 @@
 		2C3277651A6ED8C900ED1F1E /* CitiesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3277641A6ED8C900ED1F1E /* CitiesCollectionViewController.m */; };
 		2C32776E1A6EDDD000ED1F1E /* CityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C32776C1A6EDDD000ED1F1E /* CityCollectionViewCell.m */; };
 		2C32776F1A6EDDD000ED1F1E /* CityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C32776D1A6EDDD000ED1F1E /* CityCollectionViewCell.xib */; };
+		2C3277721A6EF35300ED1F1E /* NavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3277711A6EF35300ED1F1E /* NavigationControllerDelegate.m */; };
+		2C3277751A6EF45400ED1F1E /* ZoomTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3277741A6EF45400ED1F1E /* ZoomTransitionAnimator.m */; };
 		2C7CD3FC1A6D87ED00018B6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CD3FB1A6D87ED00018B6D /* main.m */; };
 		2C7CD3FF1A6D87ED00018B6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CD3FE1A6D87ED00018B6D /* AppDelegate.m */; };
 		2C7CD4021A6D87ED00018B6D /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7CD4011A6D87ED00018B6D /* WeatherViewController.m */; };
@@ -54,6 +56,10 @@
 		2C32776B1A6EDDD000ED1F1E /* CityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCollectionViewCell.h; sourceTree = "<group>"; };
 		2C32776C1A6EDDD000ED1F1E /* CityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCollectionViewCell.m; sourceTree = "<group>"; };
 		2C32776D1A6EDDD000ED1F1E /* CityCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityCollectionViewCell.xib; sourceTree = "<group>"; };
+		2C3277701A6EF35300ED1F1E /* NavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControllerDelegate.h; sourceTree = "<group>"; };
+		2C3277711A6EF35300ED1F1E /* NavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControllerDelegate.m; sourceTree = "<group>"; };
+		2C3277731A6EF45400ED1F1E /* ZoomTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomTransitionAnimator.h; sourceTree = "<group>"; };
+		2C3277741A6EF45400ED1F1E /* ZoomTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomTransitionAnimator.m; sourceTree = "<group>"; };
 		2C7CD3F61A6D87ED00018B6D /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7CD3FA1A6D87ED00018B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C7CD3FB1A6D87ED00018B6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +158,10 @@
 				2C32776B1A6EDDD000ED1F1E /* CityCollectionViewCell.h */,
 				2C32776C1A6EDDD000ED1F1E /* CityCollectionViewCell.m */,
 				2C32776D1A6EDDD000ED1F1E /* CityCollectionViewCell.xib */,
+				2C3277701A6EF35300ED1F1E /* NavigationControllerDelegate.h */,
+				2C3277711A6EF35300ED1F1E /* NavigationControllerDelegate.m */,
+				2C3277731A6EF45400ED1F1E /* ZoomTransitionAnimator.h */,
+				2C3277741A6EF45400ED1F1E /* ZoomTransitionAnimator.m */,
 				2C7CD4031A6D87ED00018B6D /* Main.storyboard */,
 				2C7CD4061A6D87ED00018B6D /* Images.xcassets */,
 				2C7CD4081A6D87ED00018B6D /* LaunchScreen.xib */,
@@ -379,7 +389,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3277721A6EF35300ED1F1E /* NavigationControllerDelegate.m in Sources */,
 				2C3277651A6ED8C900ED1F1E /* CitiesCollectionViewController.m in Sources */,
+				2C3277751A6EF45400ED1F1E /* ZoomTransitionAnimator.m in Sources */,
 				2CBA26481A6DEA0E002570D3 /* Weather.m in Sources */,
 				2C7CD4021A6D87ED00018B6D /* WeatherViewController.m in Sources */,
 				2C7CD3FF1A6D87ED00018B6D /* AppDelegate.m in Sources */,

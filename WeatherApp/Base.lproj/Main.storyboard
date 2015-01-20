@@ -157,10 +157,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="R1P-ss-LLo" id="lZ3-T3-4x7"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RoP-up-6ed"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4y-Og-bm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="R1P-ss-LLo" customClass="NavigationControllerDelegate"/>
             </objects>
             <point key="canvasLocation" x="433" y="306"/>
         </scene>
